@@ -1,0 +1,29 @@
+<h1>新增餐廳</h1>
+
+<form action="/restaurant_list" method="post">
+  <input type="hidden"
+         name="authenticity_token"
+         value="<%= form_authenticity_token %>">
+  <label for="title">title</label>
+  <input type="text" name="title" id="title">
+  <br />
+
+  <label for="address">address</label>
+  <input type="text" name="address" id="address">
+  <br />
+
+  <label for="tel">tel</label>
+  <input type="tel" name="tel" id="tel">
+  <br />
+
+  <label for="email">email</label>
+  <input type="email" name="email" id="email">
+  <br />
+
+  <label for="description">description</label>
+  <textarea name="description"></textarea>
+  <br />
+
+  <input type="submit" value="新增">
+
+</form>
