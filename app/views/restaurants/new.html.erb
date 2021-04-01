@@ -1,29 +1,30 @@
 <h1>新增餐廳</h1>
 
-<form action="/restaurant_list" method="post">
-  <input type="hidden"
-         name="authenticity_token"
-         value="<%= form_authenticity_token %>">
-  <label for="title">title</label>
-  <input type="text" name="title" id="title">
-  <br />
+<%= form_for(Restaurant.new) do |f| %>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
 
-  <label for="address">address</label>
-  <input type="text" name="address" id="address">
-  <br />
+  <div class="field">
+    <%= f.label :tel %>
+    <%= f.text_field :tel %>
+  </div>
 
-  <label for="tel">tel</label>
-  <input type="tel" name="tel" id="tel">
-  <br />
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
 
-  <label for="email">email</label>
-  <input type="email" name="email" id="email">
-  <br />
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
 
-  <label for="description">description</label>
-  <textarea name="description"></textarea>
-  <br />
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
 
-  <input type="submit" value="新增">
-
-</form>
+  <%= f.submit %>
+<% end %>
