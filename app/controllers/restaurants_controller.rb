@@ -3,12 +3,21 @@ class RestaurantsController < ApplicationController
   end
 
   def new
+    @restaurant = Restaurant.new
   end
 
-  def list
-    # 寫入資料庫
-    # redirect -> 列表頁
-    # render html: "title is #{params[:title]}"
-    redirect_to '/restaurants'
+  def create
+    @restaurant = Restaurant.new(restaurant_params)
+
+    if @restaurant.save
+      redirect_to restaurants_path
+    else
+      render :new  # 借 new.html.erb
+    end
   end
+
+  private
+    def restaurant_params
+      params.require(:restaurant).permit(:title, :tel, :address, :email, :description)
+    end
 end

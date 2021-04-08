@@ -13,5 +13,11 @@ form {
       padding: 4px;
       border-radius: 5px;
     }
+
+    .field_with_errors {
+      input {
+        border-color: red;
+      }
+    }
   }
 }
