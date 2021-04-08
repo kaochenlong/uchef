@@ -1,3 +1,16 @@
 <h1>餐廳列表</h1>
 
+<ul>
+<% @restaurants.each do |restaurant| %>
+  <li>
+    <%= link_to restaurant.title, restaurant_path(restaurant) %>
+    <%= link_to '編輯', edit_restaurant_path(restaurant) %>
+    <%= link_to '刪除',
+                restaurant_path(restaurant),
+                method: 'delete',
+                data: { confirm: '確定嗎' } %>
+  </li>
+<% end %>
+</ul>
+
 <%= link_to '新增餐廳', new_restaurant_path %>
