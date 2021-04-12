@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_12_030019) do
+ActiveRecord::Schema.define(version: 2021_04_12_061906) do
 
   create_table "restaurants", force: :cascade do |t|
     t.string "title"
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 2021_04_12_030019) do
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_restaurants_on_deleted_at"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password"
+    t.string "role"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end
