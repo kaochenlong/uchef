@@ -5,6 +5,13 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :sessions, path: 'users', only: [:destroy] do
+    collection do
+      get :sign_in, action: 'new'
+      post :sign_in, action: 'create'
+    end
+  end
+
   resources :restaurants
   root "restaurants#index"
 
