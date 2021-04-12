@@ -1,6 +1,14 @@
 <h1>註冊帳號</h1>
 
 <%= form_for(@user) do |form| %>
+  <% if @user.errors.any? %>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <div class="field">
     <%= form.label :email %>
     <%= form.email_field :email %>
