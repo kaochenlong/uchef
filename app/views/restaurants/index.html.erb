@@ -1,3 +1,11 @@
+<% if user_signed_in? %>
+  <%= current_user.email %> |
+  <%= link_to '登出', sign_out_sessions_path, method: 'delete' %>
+<% else %>
+  <%= link_to '註冊', sign_up_users_path %> |
+  <%= link_to '登入', sign_in_sessions_path %>
+<% end %>
+
 <h1>餐廳列表</h1>
 
 <ul>

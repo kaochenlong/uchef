@@ -5,10 +5,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :sessions, path: 'users', only: [:destroy] do
+  resources :sessions, path: 'users', only: [] do
     collection do
       get :sign_in, action: 'new'
       post :sign_in, action: 'create'
+      delete :sign_out, action: 'destroy'
     end
   end
 
