@@ -19,6 +19,8 @@ class User < ApplicationRecord
 
   before_create :encrypt_password
 
+  has_many :restaurants
+
   def self.login(params)
     email = params[:email]
     password = params[:password]
