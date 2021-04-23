@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
   before_action :find_restaurant, only: [:edit, :update, :destroy]
-  before_action :check_user!, except: [:index, :show]
+  before_action :check_user!, except: [:index, :show, :hello]
 
   def index
     @restaurants = Restaurant.all
@@ -8,6 +8,8 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    @comment = @restaurant.comments.new
+    @comments = @restaurant.comments.order(id: :desc)
   end
 
   def new
