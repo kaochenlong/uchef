@@ -1,0 +1,5 @@
+var area = document.querySelector('#comment_area')
+var li = document.createElement('li')
+li.textContent = '<%= @comment.content %>'
+area.prepend(li)
+document.querySelector('#comment_content').value = ''

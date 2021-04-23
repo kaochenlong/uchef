@@ -1,14 +1,16 @@
 <h1><%= @restaurant.title %></h1>
 
 <h3>留言</h3>
-<%= form_for(@comment, url: restaurant_comments_path(@restaurant)) do |form| %>
+<%= form_for(@comment, url: restaurant_comments_path(@restaurant), remote: true) do |form| %>
   <div class="field">
-    <%= form.label :content, '留言內容' %>
+    <%= form.label :content, '留言內容 for' %>
     <%= form.text_area :content %>
   </div>
   <%= form.submit %>
 <% end %>
 
+<ul id="comment_area">
 <% @comments.each do |comment| %>
   <li><%= comment.content %></li>
 <% end %>
+</ul>

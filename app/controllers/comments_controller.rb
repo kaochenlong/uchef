@@ -7,7 +7,8 @@ class CommentsController < ApplicationController
     # @comment.user = current_user
 
     if @comment.save
-      redirect_to restaurant_path(@restaurant)  # 餐廳的 show
+      # 執行 create.js.erb
+      # redirect_to restaurant_path(@restaurant)  # 餐廳的 show
     else
       render 'restaurants/show'
     end
