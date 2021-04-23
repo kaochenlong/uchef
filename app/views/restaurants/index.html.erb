@@ -1,3 +1,6 @@
+<i class="fas fa-user-astronaut"></i>
+<i class="fas fa-heart"></i>
+
 <% if user_signed_in? %>
   <%= current_user.email %> |
   <%= link_to '登出', sign_out_sessions_path, method: 'delete' %>

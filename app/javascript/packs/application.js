@@ -7,5 +7,6 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
+import 'icon/fontawesome'
 import '../frontend'
 import '../styles'
