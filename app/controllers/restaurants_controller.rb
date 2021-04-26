@@ -12,6 +12,22 @@ class RestaurantsController < ApplicationController
     @comments = @restaurant.comments.order(id: :desc)
   end
 
+  def pocket_list
+    @restaurant = Restaurant.find(params[:id])
+
+    # if (current_user.pocket_list.exists?(@restaurant.id))
+
+    if current_user.like?(@restaurant)
+      # 移除名單
+      current_user.pocket_list.destroy(@restaurant)
+      render json: { id: @restaurant.id, status: 'removed'}
+    else
+      # 加名單
+      current_user.pocket_list << @restaurant
+      render json: { id: @restaurant.id, status: 'added'}
+    end
+  end
+
   def new
     @restaurant = Restaurant.new
   end

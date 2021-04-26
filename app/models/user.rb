@@ -19,7 +19,12 @@ class User < ApplicationRecord
 
   before_create :encrypt_password
 
-  has_many :restaurants
+  has_many :restaurants  # owner
+
+  has_many :favorite_restaurants
+  has_many :pocket_list, through: :favorite_restaurants,
+                         source: :restaurant
+
   has_many :comments
 
   def self.login(params)
@@ -30,6 +35,10 @@ class User < ApplicationRecord
     encrypted_password = Encryptor.encrypt(salted_password)
 
     find_by(email: email, password: encrypted_password)
+  end
+
+  def like?(restaurant)
+    pocket_list.exists?(restaurant.id)
   end
 
   private

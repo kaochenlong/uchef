@@ -1,4 +1,7 @@
-<h1><%= @restaurant.title %></h1>
+<h1>
+  <%= @restaurant.title %>
+  <div id="like-btn" data-id="<%= @restaurant.id %>" class="like-btn <%= 'like-btn-favorited' if user_signed_in? && current_user.like?(@restaurant) %>"></div>
+</h1>
 
 <h3>留言</h3>
 <%= form_for(@comment, url: restaurant_comments_path(@restaurant), remote: true) do |form| %>
