@@ -1,3 +1,3 @@
 import './form.scss'
 import './common.scss'
-// import './tailwind.css'
+import './tailwind.css'

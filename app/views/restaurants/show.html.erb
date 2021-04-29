@@ -1,6 +1,11 @@
-<h1>
+<h1 data-controller="pocket">
   <%= @restaurant.title %>
-  <div id="like-btn" data-id="<%= @restaurant.id %>" class="like-btn <%= 'like-btn-favorited' if user_signed_in? && current_user.like?(@restaurant) %>"></div>
+  <div id="like-btn"
+       data-action="click->pocket#add"
+       data-pocket-target="btn"
+       data-id="<%= @restaurant.id %>"
+       class="like-btn <%= 'like-btn-favorited' if user_signed_in? && current_user.like?(@restaurant) %>">
+  </div>
 </h1>
 
 <h3>留言</h3>
