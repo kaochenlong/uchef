@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <%= render 'shared/flash' %>
+    <%= render 'shared/flash' if notice %>
     <%= yield %>
   </body>
 </html>
