@@ -38,7 +38,7 @@ class RestaurantsController < ApplicationController
     @restaurant = current_user.restaurants.new(restaurant_params)
 
     if @restaurant.save
-      redirect_to restaurants_path
+      redirect_to restaurants_path, notice: '餐廳成功建立'
     else
       render :new
     end
@@ -49,7 +49,7 @@ class RestaurantsController < ApplicationController
 
   def update
     if @restaurant.update(restaurant_params)
-      redirect_to restaurant_path(@restaurant)
+      redirect_to restaurant_path(@restaurant), notice: '成功修改資料'
     else
       render :edit
     end
@@ -57,7 +57,7 @@ class RestaurantsController < ApplicationController
 
   def destroy
     @restaurant.destroy
-    redirect_to restaurants_path
+    redirect_to restaurants_path, notice: '餐廳已刪除'
   end
 
   private

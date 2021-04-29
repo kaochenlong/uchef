@@ -1,9 +1,15 @@
 class ApplicationController < ActionController::Base
+  before_action :ttt
+
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   helper_method :current_user, :user_signed_in?
 
   private
+    def ttt
+      flash[:notice] = "hello"
+    end
+
     def not_found
       render file: "#{Rails.root}/public/404.html",
              status: 404

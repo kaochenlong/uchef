@@ -8,3 +8,15 @@
 .like-btn-favorited {
   background-color: green;
 }
+
+.flash {
+  @apply bg-blue-300 px-4 py-2 flex justify-between;
+
+  span {
+    @apply text-lg text-white;
+  }
+
+  .close {
+    @apply text-blue-800 hover:text-blue-600;
+  }
+}
