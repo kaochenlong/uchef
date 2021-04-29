@@ -1,0 +1,10 @@
+<section class="text-right py-2 pr-2">
+  <% if user_signed_in? %>
+    <i class="fas fa-user-astronaut"></i>
+    <%= current_user.email %> |
+    <%= link_to '登出', sign_out_sessions_path, method: 'delete' %>
+  <% else %>
+    <%= link_to '註冊', sign_up_users_path %> |
+    <%= link_to '登入', sign_in_sessions_path %>
+  <% end %>
+</section>

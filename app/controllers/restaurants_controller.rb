@@ -3,7 +3,7 @@ class RestaurantsController < ApplicationController
   before_action :check_user!, except: [:index, :show, :hello]
 
   def index
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.all.includes(:user, :likers)
   end
 
   def show
