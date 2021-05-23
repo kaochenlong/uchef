@@ -1,2 +1,2 @@
-import './form.scss'
-import './tailwind.css'
+import "./form.scss"
+import "./tailwind.css"

@@ -1,1 +1,1 @@
-import './restaurants'
+import "./restaurants"
